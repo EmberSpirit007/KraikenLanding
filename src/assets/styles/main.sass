@@ -1,0 +1,52 @@
+@font-face
+    font-family: "DM Sans Regular"
+    src: url("@/assets/fonts/DMSans_Regular.ttf") format('truetype')
+    font-weight: 200
+    font-style: normal
+@font-face
+    font-family: "DM Sans Medium"
+    src: url("@/assets/fonts/DMSans_Medium.ttf") format('truetype')
+    font-weight: 200
+    font-style: normal
+    
+*
+    font-family: 'DM Sans Regular', sans-serif
+    font-weight: 200
+html
+    body
+        margin: 0
+        background: radial-gradient(96.91% 121.32% at 1.49% 17.97%, rgba(117, 80, 174, 0.00) 46.5%, rgba(117, 80, 174, 0.50) 100%), radial-gradient(91.35% 111.13% at 12.96% 16.43%, rgba(117, 80, 174, 0.00) 46.5%, rgba(117, 80, 174, 0.50) 100%), var(--Color, #202020)
+        margin: 0
+        font-family: 'Roboto', sans-serif    
+        text-align: center
+        // variables
+        color: #F0F0F0
+        letter-spacing: 0.15px
+        font-size: 14px 
+        @media (min-width: 992px)
+            font-size: 18px
+        #app
+            display: flex
+            flex-direction: column
+            min-height: 100vh
+            main
+                padding-top: 60px
+                display: flex
+                flex-direction: column
+                margin-top: 48px
+                margin-bottom: 120px
+                @media (min-width: 992px)
+                    margin-top: 120px
+            footer
+                margin-top: auto
+.k-container
+    width: auto
+    margin-left: auto
+    margin-right: auto
+    display: flex
+    flex-direction: column
+    gap: 56px
+    padding: 0 32px
+    @media (min-width: 992px)
+        gap: 120px
+        width: 850px
