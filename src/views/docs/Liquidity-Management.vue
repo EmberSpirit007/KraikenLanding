@@ -2,7 +2,7 @@
     <div>
 <h1>Liquidity Management</h1>
 
-<p>The liquidity of $HARB tokens is fully managed by an immutable Liquidity Manager (LM) contract. This contract governs the minting, burning, and allocation of liquidity to ensure market stability, efficient trading, and adaptive responses to market dynamics. The LM operates through three distinct liquidity positions: Floor, Anchor, and Discovery. Each serves a specific role in maintaining a balanced and resilient ecosystem.</p>
+<p>The liquidity of $KRK tokens is fully managed by an immutable Liquidity Manager (LM) contract. This contract governs the minting, burning, and allocation of liquidity to ensure market stability, efficient trading, and adaptive responses to market dynamics. The LM operates through three distinct liquidity positions: Floor, Anchor, and Discovery. Each serves a specific role in maintaining a balanced and resilient ecosystem.</p>
 
 <p>The Liquidity Manager operates exclusively on a Uniswap V3 pool on the Base network with a tick spacing of 200, equivalent to 1% fee tier. Other fee tiers liquidity pools on different networks will only receive liquidity indirectly through arbitrage.</p>
 
@@ -13,7 +13,7 @@
    │ Floor                                    │ │%│  Ether  │              
    │  ┌─┐                                     │ └─┘         │              
    │  │%│                                     │ ┌─┐         │              
-   │  │%│                                     │ │+│  $HARB  │              
+   │  │%│                                     │ │+│  $KRK   │              
    │  │%│                                     │ └─┘         │              
    │  │%│                                     └─────────────┘              
    │  │%│                                                                  
@@ -43,9 +43,9 @@
 </pre>
 <h2>Floor Position</h2>
 
-<p>The Floor is a highly concentrated liquidity position within a narrow price range. Its primary function is to provide a guaranteed minimum buyback price for $HARB tokens. This reserve stabilizes the protocol by ensuring that token holders always have a predictable exit value. As the protocol grows, the LM allocates more Ether to the Floor, increasing its depth and reliability. Between 75% and 95% of all Ether managed by the protocol is typically held in the Floor position.</p>
+<p>The Floor is a highly concentrated liquidity position within a narrow price range. Its primary function is to provide a guaranteed minimum buyback price for $KRK tokens. This reserve stabilizes the protocol by ensuring that token holders always have a predictable exit value. As the protocol grows, the LM allocates more Ether to the Floor, increasing its depth and reliability. Between 75% and 95% of all Ether managed by the protocol is typically held in the Floor position.</p>
 
-<p>A critical aspect of the Floor position is its use of Volume Weighted Average Price (VWAP) to determine its pricing strategy. VWAP represents the average sale price of $HARB tokens weighted by trading volume, providing a kind of approximate and compressed memory over historic sales of tokens from its liquidity. The LM calculates the VWAP using cumulative trade data, ensuring that on average tokens are bought back for cheaper than they were sold for. By anchoring the protocol’s liquidity to a VWAP-adjusted price, the system retains a sober approach to Floor positioning while allowing for market-responsive adjustments of Anchor and Discovery.</p>
+<p>A critical aspect of the Floor position is its use of Volume Weighted Average Price (VWAP) to determine its pricing strategy. VWAP represents the average sale price of $KRK tokens weighted by trading volume, providing a kind of approximate and compressed memory over historic sales of tokens from its liquidity. The LM calculates the VWAP using cumulative trade data, ensuring that on average tokens are bought back for cheaper than they were sold for. By anchoring the protocol’s liquidity to a VWAP-adjusted price, the system retains a sober approach to Floor positioning while allowing for market-responsive adjustments of Anchor and Discovery.</p>
 
 <h2>Anchor Position</h2>
 
@@ -62,7 +62,7 @@
 <p>When the token price moves:</p>
 
 <ul>
-  <li><strong>Upwards:</strong> The Liquidity Manager reallocates more Ether to the Floor position to enhance its stability and increases the size of the Discovery position for further price exploration. New $HARB tokens are minted to support this growth.</li>
+  <li><strong>Upwards:</strong> The Liquidity Manager reallocates more Ether to the Floor position to enhance its stability and increases the size of the Discovery position for further price exploration. New $KRK tokens are minted to support this growth.</li>
   <li><strong>Downwards:</strong> The Liquidity Manager reduces the Anchor and Discovery positions proportionally and burns excess tokens, maintaining equilibrium and reducing supply pressure.</li>
 </ul>
 
