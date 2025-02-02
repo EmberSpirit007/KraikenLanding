@@ -30,42 +30,6 @@ const router = createRouter({
                 component: () => import("../views/docs/Introduction.vue"),
             },
             {
-                path: "/docs/Holders",
-                name: "Holders",
-                meta: {
-                    title: "Docs",
-                    // group: "navbar",
-                },
-                component: () => import("../views/docs/Holders.vue"),
-            },
-            {
-                path: "/docs/Owners",
-                name: "Owners",
-                meta: {
-                    title: "Docs",
-                    // group: "navbar",
-                },
-                component: () => import("../views/docs/Owners.vue"),
-            },
-            {
-                path: "/docs/Tokenomics",
-                name: "Tokenomics",
-                meta: {
-                    title: "Docs",
-                    // group: "navbar",
-                },
-                component: () => import("../views/docs/Tokenomics.vue"),
-            },
-            {
-                path: "/docs/Harberger Tax",
-                name: "Harberger Tax",
-                meta: {
-                    title: "Docs",
-                    // group: "navbar",
-                },
-                component: () => import("../views/docs/Harberger Tax.vue"),
-            },
-            {
                 path: "/docs/Liquidity-Management",
                 name: "Liquidity Management",
                 meta: {
@@ -82,6 +46,24 @@ const router = createRouter({
                     // group: "navbar",
                 },
                 component: () => import("../views/docs/ai-agent.vue"),
+            },
+            {
+                path: "/docs/Tokenomics",
+                name: "Tokenomics",
+                meta: {
+                    title: "Docs",
+                    // group: "navbar",
+                },
+                component: () => import("../views/docs/Tokenomics.vue"),
+            },
+            {
+                path: "/docs/Staking",
+                name: "Staking",
+                meta: {
+                    title: "Docs",
+                    // group: "navbar",
+                },
+                component: () => import("../views/docs/Staking.vue"),
             },
             {
                 path: "/docs/FAQ",
