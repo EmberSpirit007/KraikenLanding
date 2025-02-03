@@ -46,6 +46,7 @@ const router = useRouter();
     top: 0
     color: #D6D6D6
     width: 100%
+    z-index: 100
     .navbar-right
         display: flex
         gap: 24px

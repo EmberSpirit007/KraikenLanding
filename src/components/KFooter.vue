@@ -1,7 +1,7 @@
 <template>
     <footer class="k-container">
         <div class="k-footer">
-            KrAIken is a project by <u>SoverAIgn</u>.network. Resarch and Development in DeFAI (DeFi x AI) Agents.<br />Use at your own risk.
+            KrAIken is a project by <u><a href="https://sovraigns.network/" target="_blank">SoverAIgn</a></u>.network. Resarch and Development in DeFAI (DeFi x AI) Agents.<br />Use at your own risk.
         </div>
     </footer>
 </template>
@@ -13,6 +13,8 @@
     line-height: 22px
     letter-spacing: 0.15px
     padding-bottom: 48px
+    a
+        color: #F0F0F0
     @media (min-width: 992px)
         font-size: 16px
 </style>
