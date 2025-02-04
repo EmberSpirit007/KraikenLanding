@@ -1,4 +1,54 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, onMounted, nextTick } from 'vue';
+
+const messages = ref<Array<{ text: string; from: 'user' | 'eliza' }>>([]);
+const inputText = ref('');
+const messagesContainer = ref<HTMLElement | null>(null);
+
+const sendMessage = async () => {
+  const text = inputText.value.trim();
+  if (!text) return;
+
+  // Add user message
+  messages.value.push({ text, from: 'user' });
+  inputText.value = '';
+
+  try {
+    // Simulate Eliza typing indicator
+    messages.value.push({ text: '...', from: 'eliza' });
+    
+    // Send to ElizaOS API
+    const response = await fetch('https://your-eliza-api/message', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text })
+    });
+
+    if (!response.ok) throw new Error('API request failed');
+    
+    const data = await response.json();
+    
+    // Remove typing indicator and add actual response
+    messages.value.pop();
+    messages.value.push({ text: data.reply, from: 'eliza' });
+
+  } catch (error) {
+    console.error('Error:', error);
+    messages.value.pop();
+    messages.value.push({ 
+      text: 'Sorry, the AI is currently unavailable. Please try again later.',
+      from: 'eliza'
+    });
+  }
+
+  // Auto-scroll to bottom
+  nextTick(() => {
+    if (messagesContainer.value) {
+      messagesContainer.value.scrollTop = messagesContainer.value.scrollHeight;
+    }
+  });
+};
+</script>
 
 <template>
 	<div class="k-container">
@@ -30,23 +80,127 @@
 				<k-button> Read Docs </k-button>
 			</div>
 		</section>
+        <div class="chat-widget">
+          <div class="chat-header">
+            <h3>AI Support</h3>
+            <div class="status-indicator"></div>
+          </div>
+          <div ref="messagesContainer" class="chat-messages">
+            <div 
+              v-for="(msg, index) in messages" 
+              :key="index" 
+              :class="['message-bubble', msg.from]"
+            >
+              <div class="message-content">
+                {{ msg.text }}
+              </div>
+            </div>
+          </div>
+          <div class="chat-input">
+            <input 
+              v-model="inputText" 
+              @keyup.enter="sendMessage" 
+              placeholder="Ask me anything..."
+              class="message-input"
+            />
+            <button @click="sendMessage" class="send-button">
+              Send
+            </button>
+          </div>
+        </div>
 	</div>
 </template>
 
-<script setup lang="ts">
-import KButton from "@/components/KButton.vue";
-</script>
 
 <style lang="sass">
-.image-card
-    box-shadow: 0px 0px 43px #000000
-    border-radius: 14.5px
-.section-block
-    display: flex
-    flex-direction: column
-    gap: 32px
-    .kraken-button
-        align-self: center
+.chat-widget
+  position: fixed
+  bottom: 20px
+  right: 20px
+  width: 320px
+  background: #ffffff
+  border-radius: 12px
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15)
+  z-index: 1000
+  font-family: inherit
+
+.chat-header
+  padding: 16px
+  background: #3B82F6
+  border-radius: 12px 12px 0 0
+  color: white
+  display: flex
+  align-items: center
+  gap: 8px
+
+  h3
+    margin: 0
+    font-weight: 600
+
+  .status-indicator
+    width: 8px
+    height: 8px
+    background: #10B981
+    border-radius: 50%
+
+.chat-messages
+  height: 300px
+  padding: 16px
+  overflow-y: auto
+  background: #f8fafc
+
+.message-bubble
+  margin-bottom: 12px
+  display: flex
+
+  &.user
+    justify-content: flex-end
+    .message-content
+      background: #3B82F6
+      color: white
+
+  &.eliza
+    justify-content: flex-start
+    .message-content
+      background: #e2e8f0
+      color: #1e293b
+
+.message-content
+  max-width: 80%
+  padding: 12px 16px
+  border-radius: 16px
+  font-size: 14px
+  line-height: 1.4
+  word-break: break-word
+
+.chat-input
+  display: flex
+  gap: 8px
+  padding: 16px
+  border-top: 1px solid #e2e8f0
+
+.message-input
+  flex: 1
+  padding: 8px 12px
+  border: 1px solid #e2e8f0
+  border-radius: 8px
+  font-size: 14px
+  &:focus
+    outline: none
+    border-color: #3B82F6
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2)
+
+.send-button
+  padding: 8px 16px
+  background: #3B82F6
+  color: white
+  border: none
+  border-radius: 8px
+  cursor: pointer
+  font-weight: 500
+  transition: background 0.2s
+  &:hover
+    background: #2563eb
 
 h2
     line-height: 133%
