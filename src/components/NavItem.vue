@@ -54,16 +54,16 @@ function checkChildActive(child: MenuItem): boolean {
 
 .nav a {
 	text-decoration: none;
-    color: #07111B
+    color: #D6D6D6;
 }
 
 .nav li.active a {
 	font-weight: bold;
-	color: #07111B;
+	color: #9667BE;
 }
 
 .nav li.parentActive > a {
 	font-weight: bold;
-	color: #07111B;
+	color: #9667BE;
 }
 </style>

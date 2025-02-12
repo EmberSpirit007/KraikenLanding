@@ -38,7 +38,7 @@ const router = useRouter();
     background-color: #07111B
     padding: 8px 24px
     height: 60px
-    border-bottom: 2px solid #9A9898
+    // border-bottom: 2px solid #9A9898
     display: flex
     align-items: center
     justify-content: space-between
@@ -75,6 +75,12 @@ const router = useRouter();
         font-weight: 400
         &:hover, &:active, &:focus
             cursor: pointer
+        img
+            height: 40px
+            width: 40px
+            @media (min-width: 768px)
+                height: auto
+                width: auto
         .navbar-title
             display: none
             @media (min-width: 768px)

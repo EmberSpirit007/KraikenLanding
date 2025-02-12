@@ -83,7 +83,7 @@ const router = createRouter({
         // Warten, bis die Komponente geladen ist und dann zum Ziel scrollen
         return {
             el: to.hash,
-            // behavior: "smooth", // Optional: für sanftes Scrollen
+            behavior: "smooth", // Optional: für sanftes Scrollen
             top: 80,
         };
     }

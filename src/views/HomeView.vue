@@ -1,14 +1,9 @@
-<script setup lang="ts"></script>
-
 <template>
+	<div class="header-section">
+		<img src="@/assets/img/header-image.png" alt="Kraiken Boss" />
+		<div class="header-text">Can you defeat the KrAIken?</div>
+	</div>
 	<div class="k-container">
-		<section class="hero-section">
-			<div class="hero-text">
-				<h1>First AI Agent for Liquidity Optimization</h1>
-				<span>Fully autonomous, sovereign and on-chain.</span>
-			</div>
-			<img src="@/assets/img/kraken.png" alt="kraken" class="image-card" />
-		</section>
 		<section class="token-liquidity-section">
 			<h2>Unrugable Token Liquidity</h2>
 			<p>
@@ -16,7 +11,7 @@
 				The liquidity pool is protected by a sovereign AI Agent that optimizes liquidity positions based on real
 				time market data.
 			</p>
-			<k-button outlined> Get $KRK </k-button>
+			<k-button outlined @click="openUniswap"> Get $KRK </k-button>
 		</section>
 		<section class="challenge-section">
 			<img src="@/assets/img/chest.png" alt="kraken" class="image-card" />
@@ -27,7 +22,7 @@
 					KrAIken is a <u>DeFAI</u> Protocol in open beta.<br /><br />
 					Everyone is invited to train the AI by trading and challenge it's liquidity positions.
 				</p>
-				<k-button> Read Docs </k-button>
+				<k-button @click="router.push('/docs')"> Read Docs </k-button>
 			</div>
 		</section>
 	</div>
@@ -35,9 +30,32 @@
 
 <script setup lang="ts">
 import KButton from "@/components/KButton.vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+function openUniswap(){
+    window.open("https://app.uniswap.org/swap?chain=base&inputCurrency=NATIVE&outputCurrency=0x45caa5929f6ee038039984205bdecf968b954820", "_blank")
+}
 </script>
 
 <style lang="sass">
+.header-section
+    position: relative
+    img
+        width: 100%
+    .header-text
+        color: #E6E6E6
+        text-shadow: 0 0 10px rgba(160, 239, 255, 0.8), 0 0 20px rgba(160, 239, 255, 0.6), 0 0 30px rgba(160, 239, 255, 0.4)
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        width: 100%
+        font-size: 35px
+        @media (min-width: 768px)
+            width: unset
+            font-size: 60px
 .image-card
     box-shadow: 0px 0px 43px #000000
     border-radius: 14.5px
@@ -83,10 +101,8 @@ h2
             font-size: 18px
 .token-liquidity-section
     text-align: center
+    align-self: center
     max-width: 550px
-    @media (min-width: 768px)
-        align-self: end
-        text-align: right
     p
         text-align: left
         @media (min-width: 768px)
@@ -125,8 +141,8 @@ h2
                 font-size: 27px
 
         p
-            font-size: 18px
             text-align: left
             @media (min-width: 768px)
+                font-size: 18px
                 text-align: unset
 </style>

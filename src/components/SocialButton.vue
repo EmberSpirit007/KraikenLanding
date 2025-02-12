@@ -46,12 +46,14 @@ const img = computed(() => {
     border-radius: 14px
     display: flex
     border: 2px solid #D6D6D6
-    padding: 8px 48px
+    padding: 8px 24px
     align-items: center
     flex: 0 1 0
     color: black
     height: 100%
     box-sizing: border-box
+    @media (min-width: 768px)
+        padding: 8px 48px
     .social-badge-icon
         display: flex
         svg

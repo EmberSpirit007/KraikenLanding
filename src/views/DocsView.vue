@@ -156,6 +156,13 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="sass">
+// docs styling e.g. warning-class
+.warning
+    color: #e6a23c
+    font-weight: bold
+.danger
+    color: #f56c6c
+    font-weight: bold
 .docs-overlay
     position: absolute
     top: 0
@@ -244,6 +251,7 @@ onBeforeUnmount(() => {
             padding: 0 16px
             position: relative
             display: none
+            color: #D6D6D6
             @media (min-width: 992px)
                 display: block
                 padding: 0 64px
