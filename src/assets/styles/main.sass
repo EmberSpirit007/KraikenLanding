@@ -8,21 +8,28 @@
     src: url("@/assets/fonts/DMSans_Medium.ttf") format('truetype')
     font-weight: 200
     font-style: normal
-    
+@font-face
+    font-family: "exo2"
+    src: url("@/assets/fonts/exo2.ttf") format('truetype')
+    font-style: normal
+@font-face
+    font-family: "Audiowide"
+    src: url("@/assets/fonts/Audiowide-Regular.ttf") format('truetype')
+
 *
-    font-family: 'DM Sans Regular', sans-serif
+    font-family: 'exo2', sans-serif
     font-weight: 200
 html
     body
         margin: 0
         background: radial-gradient(96.91% 121.32% at 1.49% 17.97%, rgba(117, 80, 174, 0.00) 46.5%, rgba(37, 37, 71, 0.50) 100%), radial-gradient(91.35% 111.13% at 12.96% 16.43%, rgba(117, 80, 174, 0.00) 46.5%, rgba(30, 34, 63, 0.50) 100%), var(--Color, #202020)
         margin: 0
-        font-family: 'Roboto', sans-serif    
+        font-family: 'Roboto', sans-serif
         text-align: center
         // variables
         color: #F0F0F0
         letter-spacing: 0.15px
-        font-size: 14px 
+        font-size: 14px
         @media (min-width: 992px)
             font-size: 18px
         #app
@@ -32,12 +39,10 @@ html
             main
                 display: flex
                 flex-direction: column
-                margin-top: 60px
                 margin-bottom: 120px
                 @media (min-width: 992px)
-                    padding-top: 60px
                     margin-top: 0
-                    
+
             footer
                 margin-top: auto
 .k-container
