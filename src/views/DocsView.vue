@@ -156,6 +156,14 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="sass">
+.docs-view 
+    .docs--body 
+        pre
+            overflow: auto
+            max-width: 100%
+            width: calc(100vw - 48px)
+            @media (min-width: 992px)
+                width: auto
 // docs styling e.g. warning-class
 .warning
     color: #e6a23c

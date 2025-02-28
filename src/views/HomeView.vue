@@ -1,6 +1,6 @@
 <template>
 	<div class="header-section">
-		<img v-if="isMobile" src="@/assets/img/header-image-mobile.png" alt="Kraiken Boss" />
+		<img v-if="isMobile" src="@/assets/img/header-image-mobile.png" width="800" height="600" alt="Kraiken Boss" />
 		<img v-else src="@/assets/img/header-image.png" alt="Kraiken Boss" />
 		<div class="header-text">Can you defeat the KrAIken?</div>
 		<div class="blur-effect"></div>
@@ -81,7 +81,8 @@ function openUniswap() {
             bottom: -50px
 
     img
-        width: 100%
+        max-width: 100%
+        height: auto
     .header-text
         color: #E6E6E6
         text-shadow: 0 0 10px rgba(160, 239, 255, 0.8), 0 0 20px rgba(160, 239, 255, 0.6), 0 0 30px rgba(160, 239, 255, 0.4)
