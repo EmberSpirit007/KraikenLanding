@@ -60,7 +60,7 @@ const props = withDefaults(
 
         h2
             font-size: 24px
-            font-weight: bold
+            font-weight: 400
             @media (min-width: 768px)
                 font-size: 27px
 

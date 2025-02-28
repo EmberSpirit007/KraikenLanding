@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<{
 .kraken-button
     background-color: #000000
     color: white
-    font-family: 'DM Sans Medium', sans-serif
+    font-family: 'Exo 2 Bold', sans-serif
     font-weight: 500
     line-height: 26px
     letter-spacing: 0.46px

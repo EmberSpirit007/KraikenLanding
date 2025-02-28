@@ -1,6 +1,8 @@
 <template>
 	<div class="docs-overlay" :class="{ open: sideMenuOpen }" @click="sideMenuOpen = false"></div>
-	<div class="docs-view" ref="docsView">
+	<div class="docs-view" ref="docsView" style="
+        padding-top: 60px;
+        ">
 		<div class="docs--header">
 			<div class="side-menu-toggle">
 				<icon-menu @click="openSideMenu"></icon-menu>
@@ -184,7 +186,7 @@ onBeforeUnmount(() => {
         display: block
 .docs-view
     position: relative
-    font-size: 14px
+    font-size: 16px
     text-align: left
     .docs--header
         height: 40px

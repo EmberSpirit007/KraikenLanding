@@ -5,7 +5,7 @@
         <br>
         <p>Token holders are essential for decentralisation, governance and decision-making in crypto. Their role is key to a project’s long-term success. It’s only fair that token holders should have the right to become owners of the very protocol they support.</p>
         <h2 id="second">Buy $HARB</h2>
-        <p> $HARB tokens and the Harberg Protocol are deployed on Base an Ethereum Layer 2. $HARB can be bought on <a href="uniswap.org">Uniswap</a> there. </p>
+        <p> $HARB tokens and the Harberg Protocol are deployed on Base an $ETHeum Layer 2. $HARB can be bought on <a href="uniswap.org">Uniswap</a> there. </p>
         <h2 id="third">Passive Income</h2>
         <p>By holding $HARB, holders can claim a passive income funded by the owner’s tax. The more owners are competing for limited owner slots the higher the tax for the token holders.</p>
         <p>The longer the token is held, the more tax holders can claim. No protocol fee is taken. </p>
