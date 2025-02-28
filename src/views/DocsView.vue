@@ -178,7 +178,7 @@ onBeforeUnmount(() => {
         display: block
 .docs-view
     position: relative
-    font-size: 14px
+    font-size: 16px
     text-align: left
     .docs--header
         height: 40px
