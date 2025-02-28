@@ -1,30 +1,62 @@
 <template>
     <div>
-    <h2>1. Staking Basics</h2>
-    <p>When you stake $KRK tokens, you're not simply locking them away - you're acquiring a <strong>percentage claim</strong> on the entire token supply. This works differently than traditional staking:</p>
+    <h1>Staking</h1>
+    <p>Staking has two important benefits:</p> 
+        <p>1. It helps the AI Agent with market sentiment analysis.</p>
+        <p>2. It transparently rewards users that promote the $KRK token and the KrAIken protocol without the need of backdoor deals or insider allocation.</p>
+    <h2>1. Staking Slots</h2>
+    <p>As a token holder you can stake your $KRK tokens to claim staking slots and become a Staker of the KrAIken Protocol. Stakers earn a share of newly minted tokens when the token supply expands (see Tokenomics).</p>
+    <p>In exchange for that benefit stakers have to pay a self-assessed tax. At any time, another token holder who agrees to pay a higher tax can buyout lower-tax staking slots. This creates a fair and dynamic market for staking slots.</p>
     
     <ul>
-        <li><strong>Fixed Percentage:</strong> Your stake represents X% of all existing $KRK tokens</li>
-        <li><strong>Dynamic Value:</strong> As new tokens are minted (common occurrence), your claim automatically applies to the new total supply</li>
-        <li><strong>Limited Capacity:</strong> Only 20% of all $KRK can be staked at any time</li>
+        <li><strong>Owner Slots:</strong> How many slots you can claim depends on the percentage of tokens you own compared to the total supply. Staking 0.001% of $KRK total supply gives 1 owner slot.</li>
+        <li><strong>Dynamic Value:</strong> As new tokens are minted (see supply expansion in Tokenomics), your claim automatically applies to the new total supply</li>
+        <li><strong>Limited Capacity:</strong> There are only 20,000 staking slots that represent 20% of all $KRK at any time.</li>
     </ul>
-    
-    <p class="warning">Example: Staking 1% of the initial 1M supply (10,000 $KRK) becomes 1% of 2M supply (20,000 $KRK) after expansion</p>
+    <p class="warning">Example: Alice stakes 10,000 $KRK. The current total supply sits at 1M. As she holds 1% of the current total supply she gets 1,000 owner slots. When the supply increases to 2M, the 1% (1,000 slots) are worth now 20,000 $KRK after expansion.</p>
 </div>
 
+<br>
+<pre>
+                   *** ### ### ***                   
+              *##       ++        ##*              
+          *##           ++            ##*          
+       *##              ++               ##*       
+      *#                ++                ##*      
+    *##                 ++     20%          ##*    
+   *##                  ++   Staking     +++ ##*   
+  *##                   ++             +++    ##*  
+ *##                    ++           ++       ##*  
+ *##                    ++        ++++         ##* 
+ *##                    ++     ++++            ##* 
+*##                     ++  ++++                ##*
+*##                     +++++                   ##*
+*##                                             ##*
+ *##                                           ##* 
+ *##         80% Open Market                   ##* 
+ *##                                           ##* 
+  *##                                         ##*  
+   *##                                       ##*   
+    *##                                     ##*    
+     *##                                   ##*     
+       *#                                ##*       
+          *##                         ##*          
+              *##                 ##*              
+                  *** ### ### ***                  
+</pre>
 <div class="concept-block">
     <h2>2. Harberger Tax Mechanism</h2>
-    <p>Inspired by the <a href="https://en.wikipedia.org/wiki/Harberger_tax" target="_blank">Harberger tax concept</a> but adapted for crypto:</p>
+    <p>To keep things fair and transparent, stakers need to pay a sel-assessed tax on their position. Inspired by the <a href="https://en.wikipedia.org/wiki/Harberger_tax" target="_blank">Harberger tax concept</a> but adapted for crypto:</p>
     
     <ul>
         <li><strong>Traditional Model:</strong> Owners self-assess property value and pay tax accordingly</li>
-        <li><strong>Kraiken Adaptation:</strong> Stakers choose tax <em>rates</em> instead of values, creating a competitive market for positions</li>
+        <li><strong>KrAIken Adaptation:</strong> Stakers choose tax <em>rates</em> instead of values, creating a competitive market for positions</li>
     </ul>
     
     <p>This system achieves three key goals:</p>
     <ol>
-        <li><strong>Market Efficiency:</strong> Positions flow to those willing to pay highest maintenance costs</li>
-        <li><strong>Anti-Hoarding:</strong> Low-tax positions get replaced, preventing permanent control</li>
+        <li><strong>Market Efficiency:</strong> Positions flow to those willing to pay highest maintenance costs (tax)</li>
+        <li><strong>Anti-Squating:</strong> Staking positions can get replaced anytime someone is willing to pay a higher tax, preventing permanent control</li>
         <li><strong>Protocol Funding:</strong> Collected taxes finance ongoing development</li>
     </ol>
 </div>
@@ -37,7 +69,6 @@
     <p>The protocol's AI liquidity manager regularly mints new tokens to:</p>
     <ul>
         <li>Maintain exchange liquidity</li>
-        <li>Fund ecosystem development</li>
         <li>Respond to market demand</li>
     </ul>
     
@@ -54,15 +85,15 @@
 
 <div class="concept-block">
     <h2>4. Position Security</h2>
-    <p>While others can replace your position, crucial protections exist:</p>
+    <p>While others can buyout your position at any time, crucial protections exist:</p>
     
     <ul>
-        <li><strong>Full Principal Return:</strong> If replaced, you receive all unstaxed $KRK immediately</li>
+        <li><strong>Full Principal Return:</strong> If replaced, you receive all untaxed $KRK and potential profit immediately</li>
         <li><strong>Three-Day Grace Period:</strong> New positions must pay minimum 3 days' tax upfront</li>
         <li><strong>Rate Transparency:</strong> All positions display current tax rates for informed decisions</li>
     </ul>
     
-    <p class="warning">Key Insight: Losing a position means forfeiting <em>future</em> earnings from that stake, not existing tokens</p>
+    <p class="warning">Key Insight: Losing a postion due to a buyout means lossing the benefit of <em>future</em> earnings from that stake, not existing tokens or profit.</p>
 </div>
 
 <div class="concept-block">

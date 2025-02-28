@@ -1,8 +1,9 @@
 <template>
     <div>
         <h1>AI Agent</h1>
+        <p>KrAIken is not just another LLM that suggests on-chain actions requiring admin or owner approval. Instead, KrAIken operates independently within its own on-chain execution environment, making decisions based on open data and a self-improving algorithm. No admin or owner can veto or interfere with its actions.</p>
         <p>
-          In the previous chapter, <strong>Liquidity Management</strong>, we described the static behavior of the contract, outlining how the liquidity manager maintains predefined parameters for market interactions. While effective in stable conditions, this static behavior lacks adaptability to dynamic market changes. Passive liquidity providers, acting as buyers of last resort, are inherently exposed to impermanent loss, as they bear the risk of price fluctuations during their provision of liquidity. By introducing an AI agent into the system, the previously static contract is now enabled to dynamically adjust to market conditions, optimizing its liquidity management strategy in real-time.
+          In the chapter, <strong>Liquidity Management</strong>, we described the static behavior of the contract, outlining how the liquidity manager maintains predefined parameters for market interactions. While effective in stable conditions, this static behavior lacks adaptability to dynamic market changes. Passive liquidity providers, acting as buyers of last resort, are inherently exposed to impermanent loss, as they bear the risk of price fluctuations during their provision of liquidity. By introducing an AI agent into the system, the previously static contract is now enabled to dynamically adjust to market conditions, optimizing its liquidity management strategy in real-time.
         </p>
 
         <p>
@@ -122,7 +123,7 @@
         </ol>
 
         <p>
-          By introducing the Agent Contract, the previously static liquidity manager becomes capable of real-time optimization, driven by on-chain evolutionary computation. If you want to know how genetic algorithms work, or why the system is considered an agent, read this vision document.
+          By introducing the Agent Contract, the previously static liquidity manager becomes capable of real-time optimization, driven by on-chain evolutionary computation. If you want to know how genetic algorithms work, or why the system is considered an agent, read this <a href="https://github.com/Sovraigns/SoLUSH-3/blob/main/vision.md">vision document</a>.
         </p>
 
         <h2>Dynamic Adaptation Through AI</h2>

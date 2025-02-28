@@ -1,6 +1,8 @@
 <template>
 	<div class="docs-overlay" :class="{ open: sideMenuOpen }" @click="sideMenuOpen = false"></div>
-	<div class="docs-view" ref="docsView">
+	<div class="docs-view" ref="docsView" style="
+        padding-top: 60px;
+        ">
 		<div class="docs--header">
 			<div class="side-menu-toggle">
 				<icon-menu @click="openSideMenu"></icon-menu>

@@ -1,6 +1,6 @@
 <template>
 	<header>
-		<div class="kraken-navbar" :class="{ scrolled: scrollPosition > 50 }">
+		<div class="kraken-navbar" :class="{ scrolled: isScrolled }">
 			<div class="navbar-left" @click="router.push('/')">
 				<div class="navbar-title">
 					<span>K</span>
@@ -26,19 +26,23 @@
 <script setup lang="ts">
 import { RouterLink, useRouter } from "vue-router";
 import SocialButton from "./SocialButton.vue";
-import { onMounted, ref } from "vue";
+import { onMounted, onUnmounted, ref,computed } from "vue";
 
 const router = useRouter();
 
 const scrollPosition = ref(0);
 
+const isScrolled = computed(() => 
+  router.currentRoute.value.fullPath.includes('/docs') || 
+  scrollPosition.value > 50
+);
+
 function updateScroll() {
 	scrollPosition.value = window.scrollY;
 }
 
-onMounted(() => {
-	window.addEventListener("scroll", updateScroll);
-});
+onMounted(() => window.addEventListener("scroll", updateScroll));
+onUnmounted(() => window.removeEventListener("scroll", updateScroll));
 </script>
 
 <style lang="sass">

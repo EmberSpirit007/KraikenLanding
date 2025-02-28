@@ -3,13 +3,54 @@
 <h1>Tokenomics</h1>
 
 <p>
-This section describes the design and distribution of the protocol's native digital token, Kraiken ($KRK). The token is issued exclusively through its Uniswap V3 liquidity pool, and its supply adjusts dynamically with network growth and demand. Kraiken is a fair-launch protocol, meaning there are no allocations for teams or investors. This ensures equal opportunities for all participants from the very beginning.
+This section describes the design and distribution of the protocol's native digital token, Kraiken ($KRK). The token is issued exclusively through its Uniswap V3 liquidity pool, and its supply adjusts dynamically with network growth and demand.</p> 
+<p>Kraiken is a fair-launch protocol, meaning there are no allocations or unlocks for teams or investors. This ensures equal opportunities for all participants from the very beginning.
 </p>
+
+<h2>Dynamic Supply</h2>
+<p>There is no fixed supply for $KRK. The minting and burning of $KRK tokens are fully managed by an immutable Liquidity Manager (LM) contract, which oversees the token's supply and liquidity.</p>
+
+
+
+<h3>Supply Expansion</h3>
+<p>When buys exceed sells (rising demand), new $KRK tokens are minted to "refill" the liquidity pool (e.g., after tokens are purchased from Uniswap). This expands the total supply, which, assuming price stability, increases the protocol’s market capitalization.</p>
+<pre> 
+                       ▲                         ┬─────────┬             =       ▲          
+                    ┌─────┐                      [         ]          ┌─────┐ ^-----^       
+   A        $ETH    │     │    ▼                 [ 00110 1 ]          │     │ ^     ^       
+  / \     ───────>  │     │ ┌─────┐              [ 1100 11 ]          │     │ ^-----^       
+\/'-'\/             │     │ │     │     ─────>   [ 0100 10 ]  +$KRK   │     │ │  +  │       
+ \_;_/      $KRK    │  +  │ │  -  │     ─────>   [ 0011110 ]  ──────> │ ETH │ │ KRK │       
+  / \     <───────  │ ETH │ │ KRK │              [         ]          │     │ │     │       
+                    │     │ │     │              ┴─────────┴          │     │ │     │       
+                                                                                            
+ Alice buys $KRK from Uniswap Pool            LM Contract mints $KRK and fills up Uniswap Pool 
+</pre>
+<br>
+<br>
+
+<h3>Token Burn</h3>
+<p>When sells outpace buys, surplus $KRK tokens from the liquidity pool are automatically burned to maintain its balance (further stabilizing the price).</p>
+<pre>
+                               ▲                 ┬─────────┬                     ▼              
+                            ┌─────┐              [         ]                  v-----v           
+   A        $KRK       ▼    │     │              [ 00110 1 ]             =    v     v           
+  / \     ───────>  ┌─────┐ │     │              [ 1100 11 ]          ┌─────┐ v-----v           
+\/'-'\/             │     │ │     │     ─────>   [ 0100 10 ]  +$KRK   │     │ │     │           
+ \_;_/      $ETH    │  -  │ │  +  │     ─────>   [ 0011110 ]  ──────> │     │ │  -  │           
+  / \     <───────  │ ETH │ │ KRK │              [         ]          │ ETH │ │ KRK │           
+                    │     │ │     │              ┴─────────┴          │     │ │     │           
+                                                                                                
+  Alice sells $KRK to Uniswap Pool             LM Contract burns $KRK and balances Uniswap Pool 
+</pre>
+<br>
+
+<p>These dynamic supply changes make tokenomics fair and transparent for everyone. Read further for more details.</p>
 
 <h2>Primer to Liquidity Management</h2>
 
 <p>
-The minting and burning of $KRK tokens are fully managed by an immutable Liquidity Manager (LM) contract, which oversees the token's supply and liquidity. The LM maintains three key liquidity positions:
+The LM maintains three key liquidity positions:
 </p>
 
 <h3>1. Floor</h3>
@@ -24,13 +65,13 @@ The Anchor position with lower liquidity depth compared to the Floor, but covers
 
 <h3>3. Discovery</h3>
 <p>
-The Discovery position has more dept and range than the Anchor. It allows for price exploration beyond the current range, enabling efficient trading during periods of high demand or market growth. This position grows with network activity and serves to attract more liquidity. Ether that is accumulated in this position is regularly moved to Floor and Anchor.
+The Discovery position has more dept and range than the Anchor. It allows for price exploration beyond the current range, enabling efficient trading during periods of high demand or market growth. This position grows with network activity and serves to attract more liquidity. $ETH that is accumulated in this position is regularly moved to Floor and Anchor.
 </p>
 <br>
 <pre>
    ▲                                          ┌─────────────┐              
    │                                          │ ┌─┐         │              
-   │ Floor                                    │ │%│  Ether  │              
+   │ Floor                                    │ │%│  $ETH   │              
    │  ┌─┐                                     │ └─┘         │              
    │  │%│                                     │ ┌─┐         │              
    │  │%│                                     │ │+│  $KRK   │              
@@ -69,54 +110,26 @@ When the price moves up, the LM rebalances by allocating more ETH to the Floor p
 <h2>Protocol Initialization</h2>
 
 <p>
-The Kraiken Protocol is initialized with a single transaction. The team deposits 1 Ether into the Liquidity Manager, which sets the initial pool price at 1 cent per token. The Liquidity Manager bootstraps the Uniswap V3 liquidity pool and begins adjusting positions dynamically.
+The Kraiken Protocol is initialized with a single transaction. The team deposits 1 $ETH into the Liquidity Manager, which sets the initial pool price at 1 cent per token. The Liquidity Manager bootstraps the Uniswap V3 liquidity pool and begins adjusting positions dynamically.
 </p>
 
 <p>
 From the start, the LM rebalances positions whenever the price moves more than 2% up or down, ensuring liquidity is always optimized for current market conditions.
 </p>
 
-<h2>Profit Flows</h2>
-
+<h2>Utility</h2>
 <p>
-All liquidity provider fees earned by the Liquidity Manager are sent to the reward pool. Token holders can withdraw their share of these earnings pro-rata at any time. This ensures that holders benefit directly from the protocol's trading activity, with no additional action required on their part.
+The $KRK token and its liquidity pool generates sufficient training data to continuously improve the AI agent’s performance. It kickstarts AI-driven liquidity management systems across the crypto ecosystem.
+The end goal: Enable the AI to autonomously manage liquidity positions across multiple token pools on Uniswap and other DEXs. This will result in fee revenue flowing back to $KRK holders.
 </p>
-<pre>
-                                                                 
-                               Retail                                
-                                                                 
-                                 ▲ │                                
-                                 │ │                        ____    
-                              buy│ │sell                   [____]   
-                                 │ │        mint/burn      ]()()[   
-   .-""""""-.                    │ ▼        Token        ___\__/___ 
-  .'          '.             ┌───┴──────┐ ◄───────────► |__|    |__|
- /   O      O   \    buy     │Uniswap V3│   move         |_|_/\_|_| 
-:                :  ◄────────┤Liquidity │   Liquidity    | | __ | | 
-|                |           │Pool      │ ◄───────────►  |_|[::]|_| 
-: ',          ,' :           └──────────┘                \_|_||_|_/ 
- \  '-......-'  /                                          |_||_|   
-  '.          .'              ┌──────┐    Liquidity       _|_||_|_  
-    '-......-'       claim    │Reward│    Fees           |___||___| 
-      Holder        ◄──────── │Pool  │  ◄──────────────   Liquidity 
-                              └──────┘                    Manager   
-                                                                 
-</pre>
-
 
 <h2>Objective of Token Design</h2>
 
 <p>
 The Kraiken Protocol is designed to provide a fair and adaptive token ecosystem. By launching with minimal initial liquidity and no team or investor allocations, the protocol ensures equal opportunities for all participants. Minting and burning respond dynamically to market conditions, supporting growth during expansion and reducing supply (and sell pressure) during contraction.
 </p>
-<br>
 <p>
-The Liquidity Manager provides deep liquidity, stabilizes the price, and accrues trading fees as rewards for token holders. This design allows casual holders to "hold and forget," benefiting from passive income and a well-managed, stable ecosystem without needing to actively participate in liquidity management or market decisions.
-</p>
-<h2>Risk Profile</h2>
-
-<p>
-While the Liquidity Manager offers a "guaranteed minimum buyback" through the Floor position, the price is dynamic because some ETH is always allocated to the Anchor position for active trading. This ensures efficient price discovery and liquidity optimization but also introduces variability in the Floor’s backing. Compared to systems like Baseline, which use similar Floor, Anchor, and Discovery positions, Kraiken operates with a more dynamic and risk-tolerant approach. This allows for potentially higher rewards but comes with increased exposure to market fluctuations.
+The Liquidity Manager provides deep liquidity and stabilizes the price. This design allows casual holders to "hold and forget," benefiting from well-managed, stable token ecosystem without needing to actively participate in liquidity management or market decisions.
 </p>
     </div>
 </template>

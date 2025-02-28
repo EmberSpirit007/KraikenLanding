@@ -2,7 +2,7 @@
 	<div class="header-section">
 		<img v-if="isMobile" src="@/assets/img/header-image-mobile.png" alt="Kraiken Boss" />
 		<img v-else src="@/assets/img/header-image.png" alt="Kraiken Boss" />
-		<div class="header-text">Can you defeat the KrAIken?</div>
+		<div class="header-text">Deep Liquidity <br> AI Agent</div>
 		<div class="blur-effect"></div>
 	</div>
 	<div class="k-container">
@@ -22,7 +22,7 @@
 					<img src="@/assets/img/chest.png" alt="kraken" class="image-card" />
 				</template>
 				<template #right>
-					<h2>Challenge the AI</h2>
+					<h2>Going Deeper</h2>
 					<p>
 						KrAIken is built to deepen token liquidity, starting in the $KRK pool—an ideal ground for
 						mastering market tides. <br /><br />
@@ -84,13 +84,15 @@ function openUniswap() {
         width: 100%
     .header-text
         color: #E6E6E6
-        text-shadow: 0 0 10px rgba(160, 239, 255, 0.8), 0 0 20px rgba(160, 239, 255, 0.6), 0 0 30px rgba(160, 239, 255, 0.4)
+        text-shadow: 0 0 px rgba(160, 239, 255, 0.8), 0 0 20px rgba(160, 239, 255, 0.6), 0 0 30px rgba(160, 239, 255, 0.4)
         position: absolute
+        text-align: left
         top: 50%
-        left: 50%
+        left: 35%
         transform: translate(-50%, -50%)
         width: 100%
         font-size: 35px
+        font-weight: 300
         @media (min-width: 768px)
             width: unset
             font-size: 60px
@@ -144,10 +146,11 @@ h2
     z-index: 10
     p
         text-align: left
+        font-weight: 50
         @media (min-width: 768px)
             text-align: unset
     h2
-        font-weight: 700
+        font-weight: 400
         letter-spacing: 0.25px
         font-size: 24px
         @media (min-width: 768px)
