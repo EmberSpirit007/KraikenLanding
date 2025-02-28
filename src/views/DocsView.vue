@@ -207,7 +207,7 @@ onBeforeUnmount(() => {
             svg
                 height: 25px
                 path
-                    fill: var(--color-font)
+                    fill: white
     .docs--body
         display: flex
         pre
@@ -248,6 +248,7 @@ onBeforeUnmount(() => {
                 padding-left: 16px
                 font-size: 13px
                 font-weight: 500
+                margin-top: 20px
                 ul
                     padding: 0 12px
                     margin: 0
@@ -305,10 +306,14 @@ onBeforeUnmount(() => {
     color: white
     background-color: var(--midnight-black, #0F0F0F)
     height: 100vh
+    gap: 4px
     transform: translateX(0)
     .router-link-active
-        color: #3451b2
+        color: white
         font-weight: bold
+    a
+        color: white
+        text-decoration: none
 
 
 .slide-enter

@@ -2,9 +2,13 @@
 	<div class="header-section">
 		<img v-if="isMobile" src="@/assets/img/header-image-mobile.png" width="800" height="600" alt="Kraiken Boss" />
 		<img v-else src="@/assets/img/header-image.png" alt="Kraiken Boss" />
-		<div class="header-text">Deep Liquidity <br> AI Agent</div>
+		<div class="header-text">
+			Deep Liquidity <br />
+			AI Agent
+		</div>
 		<div class="blur-effect"></div>
 	</div>
+	<countdown v-model="countdownExpired" :end="endDt"> </countdown>
 	<div class="k-container">
 		<section class="token-liquidity-section">
 			<h2>Unrugable Token Liquidity</h2>
@@ -50,10 +54,15 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import KButton from "@/components/KButton.vue";
 import LeftRightComponent from "@/components/LeftRightComponent.vue";
+import Countdown from "@/components/Countdown.vue";
 import { useMobile } from "@/composables/useMobile";
 import { useRouter } from "vue-router";
+
+const endDt = new Date(1741302000000);
+const countdownExpired = ref(1);
 
 const isMobile = useMobile();
 const router = useRouter();
@@ -70,15 +79,14 @@ function openUniswap() {
 .header-section
     position: relative
     .blur-effect
-        filter: blur(34.650001525878906px)
+        filter: blur(45px)
         height: 300px
         position: absolute
         bottom: -150px
         width: 100%
         background-color: #07111B
-        @media (min-width: 768px)
-            height: 100px
-            bottom: -50px
+        left: -10%
+        width: 120%
 
     img
         max-width: 100%
@@ -144,6 +152,7 @@ h2
 .token-liquidity-section
     text-align: center
     align-self: center
+    margin-top: 120px
     max-width: 840px
     z-index: 10
     p
