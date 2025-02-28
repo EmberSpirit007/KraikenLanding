@@ -1,7 +1,7 @@
 <template>
     <footer class="k-container">
         <div class="k-footer">
-            KrAIken is a project by <u><a href="https://sovraigns.network/" target="_blank">SovrAIgns.network</a></u>.<br /> Resarch and Development in DeFAI (DeFi x AI) Agents.Use at your own risk.
+            KrAIken is a project by <u><a href="https://sovraigns.network/" target="_blank">SovrAIgns.network</a></u>.<br /> Resarch and Development in DeFAI (DeFi x AI) Agents. Use at your own risk.
         </div>
     </footer>
 </template>

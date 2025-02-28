@@ -65,6 +65,7 @@ const props = withDefaults(
                 font-size: 27px
 
         p
+            margin-bottom: 32px
             @media (min-width: 768px)
                 font-size: 18px
 </style>

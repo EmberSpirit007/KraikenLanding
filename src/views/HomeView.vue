@@ -1,7 +1,7 @@
 <template>
 	<div class="header-section">
 		<img v-if="isMobile" src="@/assets/img/header-image-mobile.png" width="800" height="600" alt="Kraiken Boss" />
-		<img v-else src="@/assets/img/header-image.png" alt="Kraiken Boss" />
+		<img v-else src="@/assets/img/header-image.png" width="1920" height="1080" alt="Kraiken Boss" />
 		<div class="header-text">
 			Deep Liquidity <br />
 			AI Agent
@@ -18,7 +18,8 @@
 				time market data.
 			</p>
 			<br />
-			<k-button outlined @click="openUniswap"> Get $KRK </k-button>
+			<!-- <k-button outlined @click="openUniswap" @mouseover="onMouseOver" @mouseout="onMouseOut"> {{ getKrkText }} </k-button> -->
+			<k-button outlined @mouseover="onMouseOver" @mouseout="onMouseOut"> {{ getKrkText }} </k-button>
 		</section>
 		<section class="challenge-section">
 			<left-right-component reverse>
@@ -41,12 +42,12 @@
 					<img src="@/assets/img/arielle.png" alt="kraken" class="image-card" />
 				</template>
 				<template #right>
-					<h2>Meet Arielle</h2>
+					<h2>Meet Arielle (coming soon)</h2>
 					<p>
 						Ask questions, challenge the protocol, and find edge cases for KrAIken. <br /><br />
 						Arielle is here to assist.
 					</p>
-					<k-button @click=""> Open Chat </k-button>
+					<k-button > Read Docs</k-button>
 				</template>
 			</left-right-component>
 		</section>
@@ -63,7 +64,7 @@ import { useRouter } from "vue-router";
 
 const endDt = new Date(1741302000000);
 const countdownExpired = ref(1);
-
+const getKrkText = ref("Get $KRK");
 const isMobile = useMobile();
 const router = useRouter();
 
@@ -72,6 +73,16 @@ function openUniswap() {
 		"https://app.uniswap.org/swap?chain=base&inputCurrency=NATIVE&outputCurrency=0x45caa5929f6ee038039984205bdecf968b954820",
 		"_blank"
 	);
+}
+
+function onMouseOver(event: any) {
+    getKrkText.value = "On launch";
+
+}
+
+function onMouseOut(event: any) {
+    getKrkText.value = "Get $KRK";
+
 }
 </script>
 
@@ -94,18 +105,18 @@ function openUniswap() {
         height: auto
     .header-text
         color: #E6E6E6
-        text-shadow: 0 0 px rgba(160, 239, 255, 0.8), 0 0 20px rgba(160, 239, 255, 0.6), 0 0 30px rgba(160, 239, 255, 0.4)
+        mix-blend-mode: color-dodge
+        font-weight: 500
         position: absolute
         text-align: left
         top: 50%
         left: 35%
         transform: translate(-50%, -50%)
-        width: 100%
         font-size: 35px
-        font-weight: 300
+        font-weight: 500
         @media (min-width: 768px)
             width: unset
-            font-size: 60px
+            font-size: 78px
 .image-card
     box-shadow: 0px 0px 50px 0px #000
     border-radius: 14.5px
@@ -156,7 +167,7 @@ h2
     max-width: 840px
     z-index: 10
     p
-        text-align: left
+        text-align: center
         font-weight: 50
         @media (min-width: 768px)
             text-align: unset

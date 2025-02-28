@@ -166,6 +166,7 @@ onBeforeUnmount(() => {
             width: calc(100vw - 48px)
             @media (min-width: 992px)
                 width: auto
+                overflow: unset
 // docs styling e.g. warning-class
 .warning
     color: #e6a23c

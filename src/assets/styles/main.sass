@@ -25,7 +25,6 @@
     font-weight: 50
 html
     body
-        overflow-x: hidden
         margin: 0
         background: radial-gradient(96.91% 121.32% at 1.49% 17.97%, rgba(117, 80, 174, 0.00) 46.5%, rgba(37, 37, 71, 0.50) 100%), radial-gradient(91.35% 111.13% at 12.96% 16.43%, rgba(117, 80, 174, 0.00) 46.5%, rgba(30, 34, 63, 0.50) 100%), var(--Color, #07111B)
         margin: 0
@@ -42,9 +41,11 @@ html
             flex-direction: column
             min-height: 100vh
             main
+                
+                overflow-x: hidden
                 display: flex
                 flex-direction: column
-                margin-bottom: 120px
+                padding-bottom: 120px
                 @media (min-width: 992px)
                     margin-top: 0
 

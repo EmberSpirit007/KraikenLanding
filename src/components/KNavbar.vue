@@ -15,8 +15,8 @@
 					<RouterLink to="/docs">Docs</RouterLink>
 				</nav>
 				<div class="navbar-socials">
-					<social-button :dark="true" type="telegram"></social-button>
-					<social-button :dark="true" type="twitter"></social-button>
+					<social-button :dark="true" type="telegram" href="https://t.me/kraikenportal"></social-button>
+					<social-button :dark="true" type="twitter" href="https://x.com/KrAIkenProtocol"></social-button>
 				</div>
 			</div>
 		</div>

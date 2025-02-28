@@ -98,18 +98,24 @@ onUnmounted(() => clearInterval(_timerId));
     z-index: 10
     align-self: center
     font-weight: bold
-    width: 500px
+    width: calc( 100vw - 48px)
+    @media (min-width: 768px)
+        width: 500px
     .countdown__title
         text-align: left
-        font-size: 20px
+        font-size: 18px
         font-weight: 400
         margin: 8px
+        @media (min-width: 768px)
+            font-size: 20px
     .countdown__time
         box-sizing: border-box
         padding: 12px 24px
-        font-size: 40px
+        font-size: 32px
         position: relative
         border-radius: 12px
+        @media (min-width: 768px)
+            font-size: 40px
         &>div
             font-family: 'orbitron', sans-serif
             font-weight: 400
@@ -121,7 +127,7 @@ onUnmounted(() => clearInterval(_timerId));
             /* Erbt die Abrundung */
             padding: 2px
             /* Dicke des Borders */
-            background: linear-gradient(25deg, #7550AE, grey, grey, #7550AE)
+            background: linear-gradient(10deg, #BF62B2, black)
             -webkit-mask: linear-gradient(white, white) content-box, linear-gradient(white, white)
             -webkit-mask-composite: destination-out
             mask-composite: exclude
