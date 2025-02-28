@@ -82,6 +82,7 @@ function openUniswap() {
 
     img
         max-width: 100%
+        min-width: 100%
         height: auto
     .header-text
         color: #E6E6E6
