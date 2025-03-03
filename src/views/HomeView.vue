@@ -11,7 +11,7 @@
 	<countdown v-model="countdownExpired" :end="endDt"> </countdown>
 	<div class="k-container">
 		<section class="token-liquidity-section">
-			<h2>Unrugable Token Liquidity</h2>
+			<h2>Unruggable Token Liquidity</h2>
 			<p>
 				$KRK is the first token with unruggable liquidity managed by AI.<br /><br />
 				The liquidity pool is protected by a sovereign AI Agent that optimizes liquidity positions based on real
@@ -47,7 +47,7 @@
 						Ask questions, challenge the protocol, and find edge cases for KrAIken. <br /><br />
 						Arielle is here to assist.
 					</p>
-					<k-button > Read Docs</k-button>
+					<k-button @click="router.push('/docs')"> Read Docs</k-button>
 				</template>
 			</left-right-component>
 		</section>
@@ -62,7 +62,7 @@ import Countdown from "@/components/Countdown.vue";
 import { useMobile } from "@/composables/useMobile";
 import { useRouter } from "vue-router";
 
-const endDt = new Date(1741302000000);
+const endDt = new Date(1741366800000);
 const countdownExpired = ref(1);
 const getKrkText = ref("Get $KRK");
 const isMobile = useMobile();
