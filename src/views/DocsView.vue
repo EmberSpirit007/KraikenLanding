@@ -5,6 +5,7 @@
         ">
 		<div class="docs--header">
 			<div class="side-menu-toggle">
+                <div class="menu-circle"></div>
 				<icon-menu @click="openSideMenu"></icon-menu>
 			</div>
 		</div>
@@ -175,7 +176,7 @@ onBeforeUnmount(() => {
     color: #f56c6c
     font-weight: bold
 .docs-overlay
-    position: absolute
+    position: fixed
     top: 0
     left: 0
     height: 100%
@@ -191,22 +192,40 @@ onBeforeUnmount(() => {
     text-align: left
     .docs--header
         height: 40px
-        top: 80px
-        position: sticky
+        top: unset
+        bottom: 24px
+        left: 24px
+        position: fixed
         height: 40px
         padding: 4px
         display: flex
         align-items: center
         background-color: var(--color-primary)
+        z-index: 96
         @media (min-width: 992px)
             display: none
         .side-menu-toggle
             height: 40px
             padding: 12px
             position: fixed
-            top: 80px
+            top: unset
+            bottom: 24px
+            left: 24px
+            display: flex
+            align-items: center
+            justify-content: center
+            z-index: 97
+            .menu-circle
+                position: absolute
+                width: 64px
+                height: 64px
+                background-color: rgba(0, 0, 0, 0.89)
+                border-radius: 50%
+                z-index: 96
             svg
-                height: 25px
+                height: 36px
+                position: relative
+                z-index: 98
                 path
                     fill: white
     .docs--body
@@ -278,6 +297,9 @@ onBeforeUnmount(() => {
                     &.router-link-active
                         color: #9667BE
                         font-weight: bold
+                h4
+                    font-size: 20px
+                    margin-bottom: 16px
         .center
             padding: 0 24px
             flex: 1 1 auto
@@ -293,18 +315,18 @@ onBeforeUnmount(() => {
     position: fixed
     top: 0
     left: 0
-    z-index: 200
+    z-index: 101
     padding: 112px 32px 96px 32px
-    width: calc(100vw - 64px)
+    width: 50vw
     max-width: 320px
-    background-color: var(--vp-sidebar-bg-color)
+    background-color: var(--vp-sidebar-bg-color, #0F0F0F)
     // opacity: 0
     box-shadow: var(--vp-c-shadow-3)
     overflow-x: hidden
     overflow-y: auto
     transition: opacity 0.5s, transform 0.25s ease
     overscroll-behavior: contain
-    color: white
+    color: #9A9898
     background-color: var(--midnight-black, #0F0F0F)
     height: 100vh
     gap: 4px
@@ -315,6 +337,12 @@ onBeforeUnmount(() => {
     a
         color: white
         text-decoration: none
+        font-size: 20px
+        padding: 4px 0
+    h4
+        colour: #9A9898
+        font-size: 24px  // Made the Navigation title bigger too
+        margin-bottom: 20px
 
 
 .slide-enter

@@ -163,7 +163,7 @@ h2
 .token-liquidity-section
     text-align: center
     align-self: center
-    margin-top: 120px
+    margin-top: 88px
     max-width: 840px
     z-index: 10
     p

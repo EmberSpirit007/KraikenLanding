@@ -10,16 +10,40 @@
 					<span>ken</span>
 				</div>
 			</div>
-			<div class="navbar-right">
-				<nav>
-					<RouterLink to="/docs">Docs</RouterLink>
-				</nav>
-				<div class="navbar-socials">
-					<social-button :dark="true" type="telegram" href="https://t.me/kraikenportal"></social-button>
-					<social-button :dark="true" type="twitter" href="https://x.com/KrAIkenProtocol"></social-button>
-				</div>
-			</div>
+			<div class="desktop-nav">
+                <RouterLink to="/docs">Docs</RouterLink>
+                <div class="social-buttons">
+                    <social-button type="telegram" href="https://t.me/kraikenportal"></social-button>
+                    <social-button type="twitter" href="https://x.com/KrAIkenProtocol"></social-button>
+                </div>
+            </div>
+            <div class="menu-trigger" @click.stop="toggleMenu">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <circle cx="12" cy="5" r="2" :fill="isScrolled ? '#D6D6D6' : '#07111B'" />
+                    <circle cx="12" cy="12" r="2" :fill="isScrolled ? '#D6D6D6' : '#07111B'" />
+                    <circle cx="12" cy="19" r="2" :fill="isScrolled ? '#D6D6D6' : '#07111B'" />
+                </svg>
+            </div>            
 		</div>
+        <div class="menu-overlay" v-if="isMenuOpen" @click="closeMenu"></div>
+        <div class="slide-menu" :class="{ 'is-open': isMenuOpen }">
+            <div class="menu-items">
+                <RouterLink 
+                to="/" 
+                @click="closeMenu" 
+                :class="{ active: $route.path === '/' }"
+            >Start</RouterLink>
+            <RouterLink 
+                to="/docs" 
+                @click="closeMenu" 
+                :class="{ active: $route.path === '/docs' }"
+            >Docs</RouterLink>
+            </div>
+            <div class="menu-socials">
+                <social-button type="telegram" href="https://t.me/kraikenportal"></social-button>
+                <social-button type="twitter" href="https://x.com/KrAIkenProtocol"></social-button>
+            </div>
+        </div>
 	</header>
 </template>
 
@@ -32,6 +56,8 @@ const router = useRouter();
 
 const scrollPosition = ref(0);
 
+const isMenuOpen = ref(false);
+
 const isScrolled = computed(() => 
   router.currentRoute.value.fullPath.includes('/docs') || 
   scrollPosition.value > 50
@@ -40,12 +66,112 @@ const isScrolled = computed(() =>
 function updateScroll() {
 	scrollPosition.value = window.scrollY;
 }
+function toggleMenu() {
+  isMenuOpen.value = !isMenuOpen.value;
+  if (isMenuOpen.value) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+}
 
+function closeMenu() {
+  isMenuOpen.value = false;
+  document.body.style.overflow = '';
+}
 onMounted(() => window.addEventListener("scroll", updateScroll));
-onUnmounted(() => window.removeEventListener("scroll", updateScroll));
+onUnmounted(() => window.removeEventListener("scroll", updateScroll));document.body.style.overflow = '';
 </script>
 
 <style lang="sass">
+
+.desktop-nav
+    display: none
+    align-items: center
+    gap: 24px
+    @media (min-width: 768px)
+        display: flex
+    a
+        color: #07111B
+        text-decoration: none
+        font-size: 18px
+        line-height: 24px
+        font-weight: 500
+        &:hover, &:active, &:focus
+            color: #F9F9FA
+    .social-buttons
+        display: flex
+        gap: 16px
+        margin-left: 16px
+        .social-badge
+            border: 2px solid #07111B
+            transition: all 0.2s ease
+            svg
+                fill: #07111B
+            &:hover
+                border: 2px solid #07111B
+                svg
+                    fill: #07111B
+
+.menu-trigger
+    display: none
+    cursor: pointer
+    padding: 8px
+    z-index: 99
+    @media (max-width: 767px)
+        display: block
+
+.menu-overlay
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, 0.6)
+    z-index: 96
+    display: none
+    @media (max-width: 767px)
+        display: block
+
+.slide-menu
+    position: fixed
+    border-top-left-radius: 20px
+    border-bottom-left-radius: 20px
+    top: 0
+    right: -240px
+    width: 240px
+    height: 50%
+    background: #07111B
+    z-index: 99
+    transition: transform 0.3s ease
+    display: none
+    @media (max-width: 767px)
+        display: flex
+        flex-direction: column
+        &.is-open
+            transform: translateX(-240px)
+    .menu-items
+        padding: 80px 32px
+        display: flex
+        flex-direction: column
+        gap: 24px
+        a
+            color: #9A9898
+            text-decoration: none
+            font-size: 24px
+            font-weight: 500
+            &.router-link-active,
+            &.active
+                color: #D6D6D6
+            &:hover
+                opacity: 0.8
+    .menu-socials
+        margin-top: auto
+        padding: 32px
+        display: flex
+        gap: 16px
+        justify-content: center
+
 .kraken-navbar
     box-sizing: border-box
     background-color: transparent
@@ -60,50 +186,26 @@ onUnmounted(() => window.removeEventListener("scroll", updateScroll));
     transition: 0.2s ease
     color: #07111B
     width: 100%
-    z-index: 100
+    z-index: 99
     &.scrolled
         border-bottom: 2px solid red
         background-color: #07111B
         color: #D6D6D6
         border-bottom: 2px solid #9A9898
-
-        .navbar-right
-            .navbar-socials
-                .social-badge
-                    border: 2px solid #D6D6D6
-                    .social-badge-icon
-                        svg
-                            fill: #D6D6D6
-
-            nav
-                a
-                    color: #D6D6D6
-    .navbar-right
-        display: flex
-        gap: 24px
-        align-items: center
-        @media (min-width: 768px)
-            gap: 48px
-        nav
+        .desktop-nav
             a
-                font-size: 18px
-                // color: #D6D6D6
-                color: #07111B
-                line-height: 24px
-                font-weight: 500
-                text-decoration: none
-                &:hover, &:active, &:focus
+                color: #D6D6D6
+                &:hover
                     color: #F9F9FA
-        .navbar-socials
-            display: flex
-            gap: 8px
-            @media (min-width: 768px)
-                gap: 24px
-            .social-badge
-                border: 2px solid #07111B
-                .social-badge-icon
+            .social-buttons 
+                .social-badge
+                    border-color: #D6D6D6
                     svg
-                        fill: #07111B
+                        fill: #D6D6D6
+                    &:hover
+                        border-color: #F9F9FA
+                        svg
+                            fill: #07111B
     .navbar-left
         display: flex
         gap: 8px
@@ -132,4 +234,6 @@ onUnmounted(() => window.removeEventListener("scroll", updateScroll));
                 letter-spacing: 5.76px
             .small-spacing
                 letter-spacing: 1.8px
+
+
 </style>

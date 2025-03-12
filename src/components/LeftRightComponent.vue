@@ -34,7 +34,7 @@ const props = withDefaults(
     display: flex
     justify-content: space-between
     align-items: center
-    gap: 64px
+    gap: 24px
     flex-direction: column
     text-align: center
     @media (min-width: 768px)
