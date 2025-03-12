@@ -62,7 +62,7 @@ import Countdown from "@/components/Countdown.vue";
 import { useMobile } from "@/composables/useMobile";
 import { useRouter } from "vue-router";
 
-const endDt = new Date(1741366800000);
+const endDt = new Date(1742572800000);
 const countdownExpired = ref(1);
 const getKrkText = ref("Get $KRK");
 const isMobile = useMobile();
