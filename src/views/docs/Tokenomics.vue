@@ -36,12 +36,13 @@ This section describes the design and distribution of the protocol's native digi
                             ┌─────┐              [         ]                  v-----v           
    A        $KRK       ▼    │     │              [ 00110 1 ]             =    v     v           
   / \     ───────>  ┌─────┐ │     │              [ 1100 11 ]          ┌─────┐ v-----v           
-\/'-'\/             │     │ │     │     ─────>   [ 0100 10 ]  +$KRK   │     │ │     │           
- \_;_/      $ETH    │  -  │ │  +  │     ─────>   [ 0011110 ]  ──────> │     │ │  -  │           
+\/'-'\/             │     │ │     │     ─────>   [ 0100 10 ]   -$KRK  │     │ │     │           
+ \_;_/      $ETH    │  -  │ │  +  │     ─────>   [ 0011110 ]  <─────  │     │ │  -  │           
   / \     <───────  │ ETH │ │ KRK │              [         ]          │ ETH │ │ KRK │           
                     │     │ │     │              ┴─────────┴          │     │ │     │           
                                                                                                 
-  Alice sells $KRK to Uniswap Pool             LM Contract burns $KRK and balances Uniswap Pool 
+  Alice sells $KRK to Uniswap Pool              LM Contract burns $KRK and balances Uniswap Pool
+
 </pre>
 <br>
 

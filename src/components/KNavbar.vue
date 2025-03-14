@@ -140,7 +140,7 @@ onUnmounted(() => window.removeEventListener("scroll", updateScroll));document.b
     top: 0
     right: -240px
     width: 240px
-    height: 50%
+    height: 400px
     background: #07111B
     z-index: 99
     transition: transform 0.3s ease
@@ -155,6 +155,7 @@ onUnmounted(() => window.removeEventListener("scroll", updateScroll));document.b
         display: flex
         flex-direction: column
         gap: 24px
+        flex: 1
         a
             color: #9A9898
             text-decoration: none
@@ -166,7 +167,6 @@ onUnmounted(() => window.removeEventListener("scroll", updateScroll));document.b
             &:hover
                 opacity: 0.8
     .menu-socials
-        margin-top: auto
         padding: 32px
         display: flex
         gap: 16px
