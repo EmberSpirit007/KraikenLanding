@@ -188,7 +188,6 @@ onUnmounted(() => window.removeEventListener("scroll", updateScroll));document.b
     width: 100%
     z-index: 99
     &.scrolled
-        border-bottom: 2px solid red
         background-color: #07111B
         color: #D6D6D6
         border-bottom: 2px solid #9A9898

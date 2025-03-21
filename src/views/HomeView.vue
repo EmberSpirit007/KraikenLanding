@@ -8,7 +8,11 @@
 		</div>
 		<div class="blur-effect"></div>
 	</div>
-	<countdown v-model="countdownExpired" :end="endDt"> </countdown>
+	<countdown v-model="countdownExpired" :end="endDt">
+        <template #default>
+            Coming soon
+        </template>
+    </countdown>
 	<div class="k-container">
 		<section class="token-liquidity-section">
 			<h2>Unruggable Token Liquidity</h2>
